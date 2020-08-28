@@ -8,11 +8,15 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="190ca508-c7ce-419e-81df-d81a75eacfee" >
 		<db:my-sql-connection host="db4free.net" port="3306" user="rahul1996" password="godisgreat@123" database="rahulapisero" />
 	</db:config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="7ed11e91-2a22-4c98-bfd1-5cff6b3556db" >
+		<http:request-connection host="http://localhost:8081/order" port="80" />
+	</http:request-config>
 	<flow name="dataBaseFlow" doc:id="f2287cd9-ac25-41cf-bc34-c80cefbdee0a" >
 		<http:listener doc:name="Listener" doc:id="4bf6457a-1103-43cd-98db-1fa2d81a8bfa" config-ref="HTTP_Listener_config" path="/db" allowedMethods="GET"/>
 		<db:select doc:name="Select" doc:id="4b23ff94-94ae-4247-b40b-1fc71d227275" config-ref="Database_Config">
 			<db:sql >select * from customer </db:sql>
 		</db:select>
 		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
+		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc"/>
 	</flow>
 </mule>
