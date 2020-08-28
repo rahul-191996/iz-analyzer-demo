@@ -1,6 +1,6 @@
-http:
+Http:
  path: "/order"
  path1: "/db"
  
-db:
+DB:
  query: "select * from customer"
