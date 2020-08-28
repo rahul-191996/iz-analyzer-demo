@@ -1,0 +1,6 @@
+http:
+ path: "/order"
+ path1: "/db"
+ 
+db:
+ query: "select * from customer"

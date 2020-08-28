@@ -8,7 +8,7 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="izAnalyzerDemoFlow" doc:id="afff6d84-dd52-4c99-9a5e-92c57bd03aff" >
-		<http:listener doc:name="Listener" doc:id="fc53e5ea-b4de-4615-8d7c-00662d59edab" path="/order" doc:description="listener"/>
+		<http:listener doc:name="Listener" doc:id="fc53e5ea-b4de-4615-8d7c-00662d59edab" path="/order" doc:description="listener" config-ref="HTTP_Listener_config"/>
 		<set-payload value='#["Hii"]' doc:name="Greet" doc:id="df471d6e-446a-4558-be67-e74cca3af8f5" />
 		<logger level="DEBUG" doc:name="message" doc:id="9c863b37-bd42-4d8b-89c1-4dbeaa19dc47" message="#[payload]" category="performance" doc:description="display a message"/>
 		<choice doc:name="check payload" doc:id="e65f6227-2208-4fb7-95a0-f6dfdfcc8606" >

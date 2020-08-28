@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="190ca508-c7ce-419e-81df-d81a75eacfee" >
+		<db:my-sql-connection host="db4free.net" port="3306" user="rahul1996" password="godisgreat@123" database="rahulapisero" />
+	</db:config>
+	<flow name="dataBaseFlow" doc:id="f2287cd9-ac25-41cf-bc34-c80cefbdee0a" >
+		<http:listener doc:name="Listener" doc:id="4bf6457a-1103-43cd-98db-1fa2d81a8bfa" config-ref="HTTP_Listener_config" path="/db"/>
+		<db:select doc:name="Select" doc:id="4b23ff94-94ae-4247-b40b-1fc71d227275" config-ref="Database_Config">
+			<db:sql >${db.query}</db:sql>
+		</db:select>
+		<logger level="INFO" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]"/>
+	</flow>
+</mule>
