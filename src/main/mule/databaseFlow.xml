@@ -13,6 +13,6 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 		<db:select doc:name="Select" doc:id="4b23ff94-94ae-4247-b40b-1fc71d227275" config-ref="Database_Config">
 			<db:sql >select * from customer </db:sql>
 		</db:select>
-		<logger level="INFO" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
+		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
 	</flow>
 </mule>
