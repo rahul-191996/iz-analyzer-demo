@@ -1,6 +1,6 @@
 Http:
- path: "/order"
- path1: "/db"
+ Path: "/order"
+ Path1: "/db"
  
 DB:
- query: "select * from customer"
+ Query: "select * from customer"
