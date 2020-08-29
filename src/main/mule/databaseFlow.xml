@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:db="http://www.mulesoft.org/schema/mule/db"
 	xmlns:http="http://www.mulesoft.org/schema/mule/http"
 	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
@@ -18,7 +19,7 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 			<db:sql >${'DB.query'}</db:sql>
 		</db:select>
 		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
-		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc" sendCorrelationId="AUTO"/>
+		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc" sendCorrelationId="ALWAYS"/>
 		<batch:job jobName="databaseFlowBatch_Job" doc:id="8618ee7f-d0e1-4e4b-bfe4-c05754420254" schedulingStrategy="ROUND_ROBIN">
 			<batch:process-records >
 				<batch:step name="Batch_Step" doc:id="3d09204d-228e-4c41-86e1-25dfcf078e2d" />
