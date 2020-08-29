@@ -20,7 +20,7 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 		</db:select>
 		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
 		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc" sendCorrelationId="ALWAYS"/>
-		<batch:job jobName="databaseFlowBatch_Job" doc:id="8618ee7f-d0e1-4e4b-bfe4-c05754420254" schedulingStrategy="ROUND_ROBIN">
+		<batch:job jobName="databaseFlowBatch_Job" doc:id="8618ee7f-d0e1-4e4b-bfe4-c05754420254" schedulingStrategy="ORDERED_SEQUENTIAL">
 			<batch:process-records >
 				<batch:step name="Batch_Step" doc:id="3d09204d-228e-4c41-86e1-25dfcf078e2d" />
 			</batch:process-records>
