@@ -9,11 +9,4 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 		<http:listener-connection protocol="HTTPS" host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<configuration-properties doc:name="Configuration properties" doc:id="f5264b0d-62d1-4fda-a703-596d45d17723" file="config.yaml" />
-	<flow name="globalFlow" doc:id="45494661-b16c-4cd4-b613-c290a22f3226" >
-		<batch:job jobName="globalBatch_Job" doc:id="c1ed9747-60ed-4daf-a869-32c82819f357" schedulingStrategy="ROUND_ROBIN">
-			<batch:process-records >
-				<batch:step name="Batch_Step" doc:id="bc0434ac-3a3e-4835-833f-dfa607581161" />
-			</batch:process-records>
-		</batch:job>
-	</flow>
 </mule>
