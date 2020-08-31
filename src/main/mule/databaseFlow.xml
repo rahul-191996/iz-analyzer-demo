@@ -16,13 +16,16 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 	<flow name="dataBaseFlow" doc:id="f2287cd9-ac25-41cf-bc34-c80cefbdee0a" >
 		<http:listener doc:name="Listener" doc:id="4bf6457a-1103-43cd-98db-1fa2d81a8bfa" config-ref="HTTP_Listener_config" path="/db" allowedMethods="GET"/>
 		<db:select doc:name="Select" doc:id="4b23ff94-94ae-4247-b40b-1fc71d227275" config-ref="Database_Config">
-			<db:sql >SELECT * FROM CUSTOMER</db:sql>
+			<db:sql >select * from table</db:sql>
 		</db:select>
 		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
 		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc" sendCorrelationId="AUTO"/>
 		<batch:job jobName="databaseFlowBatch_Job" doc:id="8618ee7f-d0e1-4e4b-bfe4-c05754420254" schedulingStrategy="ROUND_ROBIN">
 			<batch:process-records >
 				<batch:step name="Batch_Step" doc:id="3d09204d-228e-4c41-86e1-25dfcf078e2d" />
+				<batch:step name="Batch_Step1" doc:id="f4465d4c-32cd-4ffb-b566-6bd691291da1" >
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="85ed368c-a31c-4d33-a65b-3847240e0101" size="601"/>
+				</batch:step>
 			</batch:process-records>
 		</batch:job>
 	</flow>
