@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="iz-analyzer-demo-test-suite.xml" />
+	<munit:test name="iz-analyzer-demo-test-suite-izAnalyzerDemoFlowTest" doc:id="bb2f88da-44f1-4cb1-9ca9-01c111b12c05" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to izAnalyzerDemoFlow" doc:id="34235e0b-38b1-4ac1-8f35-38191e582fbd" name="izAnalyzerDemoFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="17ebc9e2-7c93-4eaf-8532-30ff636ccba6" message="payload null" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

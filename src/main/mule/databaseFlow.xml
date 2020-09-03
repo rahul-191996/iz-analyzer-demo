@@ -20,11 +20,12 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 		</db:select>
 		<logger level="DEBUG" doc:name="payload" doc:id="dad7fdc6-12ad-4591-a2c1-50a3656005b9" message="#[payload]" category="performance" doc:description="displays payload"/>
 		<http:request method="GET" doc:name="Request" doc:id="38743db1-63ba-4c08-ad54-7b4ae2d0e9e7" config-ref="HTTP_Request_configuration" path="/abc" sendCorrelationId="AUTO"/>
-		<batch:job jobName="databaseFlowBatch_Job" doc:id="8618ee7f-d0e1-4e4b-bfe4-c05754420254" schedulingStrategy="ROUND_ROBIN">
+		<batch:job jobName="databaseFlowBatch_Job" doc:id="23e4e04f-01ea-4a9c-805d-a600e5cca654" >
 			<batch:process-records >
-				<batch:step name="Batch_Step" doc:id="3d09204d-228e-4c41-86e1-25dfcf078e2d" />
-				<batch:step name="Batch_Step1" doc:id="f4465d4c-32cd-4ffb-b566-6bd691291da1" >
-					<batch:aggregator doc:name="Batch Aggregator" doc:id="85ed368c-a31c-4d33-a65b-3847240e0101" size="601"/>
+				<batch:step name="Batch_Step" doc:id="3509fb12-56d2-4632-a752-e2f7b40a0668" >
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="7d5c136a-b855-40d6-b8d0-6b16fb81868a" size="500">
+						<logger level="INFO" doc:name="Logger" doc:id="1d8b5f5f-66a6-454e-8ec7-e0e50c7a7a11" message="#[payload]"/>
+					</batch:aggregator>
 				</batch:step>
 			</batch:process-records>
 		</batch:job>
